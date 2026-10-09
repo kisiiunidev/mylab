@@ -1,0 +1,13 @@
+venv
+.venv
+.env
+venv/
+.venv/
+wha/
+*whatsapp_profile/
+whatsapp_profile
+whatsapp_profile/
+react_apps/
+*react_apps
+*.backup.sh
+*.pipe.sh

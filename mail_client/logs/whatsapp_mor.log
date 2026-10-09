@@ -1,0 +1,51 @@
+
+Message sent HTTP\  200
+Success: 2026-10-01 23:00:25
+
+
+Message sent HTTP\  200
+Success: 2026-10-02 23:00:04
+
+Traceback (most recent call last):
+  File "/home/server/Projects/mail_client/wha.py", line 38, in <module>
+    run()
+    ~~~^^
+  File "/home/server/Projects/mail_client/wha.py", line 30, in run
+    with url.urlopen(req) as resp:
+         ~~~~~~~~~~~^^^^^
+  File "/usr/lib/python3.14/urllib/request.py", line 187, in urlopen
+    return opener.open(url, data, timeout)
+           ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.14/urllib/request.py", line 493, in open
+    response = meth(req, response)
+  File "/usr/lib/python3.14/urllib/request.py", line 602, in http_response
+    response = self.parent.error(
+        'http', request, response, code, msg, hdrs)
+  File "/usr/lib/python3.14/urllib/request.py", line 531, in error
+    return self._call_chain(*args)
+           ~~~~~~~~~~~~~~~~^^^^^^^
+  File "/usr/lib/python3.14/urllib/request.py", line 464, in _call_chain
+    result = func(*args)
+  File "/usr/lib/python3.14/urllib/request.py", line 611, in http_error_default
+    raise HTTPError(req.full_url, code, msg, hdrs, fp)
+urllib.error.HTTPError: HTTP Error 503: SERVICE UNAVAILABLE
+
+Message sent HTTP\  200
+Success: 2026-10-04 23:00:04
+
+
+Message sent HTTP\  200
+Success: 2026-10-05 23:00:05
+
+
+Message sent HTTP\  200
+Success: 2026-10-06 23:00:04
+
+
+Message sent HTTP\  200
+Success: 2026-10-07 23:00:04
+
+
+Message sent HTTP\  200
+Success: 2026-10-08 23:00:09
+
