@@ -26,7 +26,6 @@ whatsapp_ready = False
 # Messages captured by the listener
 received_messages = []
 
-# Prevent simultaneous WhatsApp operations
 whatsapp_lock = None
 
 # Background asyncio loop
