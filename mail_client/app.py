@@ -17,7 +17,7 @@ sender_name = os.environ["SENDER_NAME"]
 def get_args():
     recipient = sys.argv[1] if len(sys.argv) > 1 else "eliezerkenya@proton.me"
     subject   = sys.argv[2] if len(sys.argv) > 2 else "Linux Logs"
-    body      = sys.argv[3] if len(sys.argv) > 3 else "Hello there, seems nothing's wrong or no arg parsed"
+    body      = sys.argv[3] if len(sys.argv) > 3 else "Hello there, seems nothing's wrong or no arg parsed here."
     return {"to": recipient, "subject": subject, "body": body}
 
 def mail_service():
