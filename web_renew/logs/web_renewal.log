@@ -46,3 +46,27 @@ Button clicked successfully!
 Run button clicked successfully.
 
 Chromium closed.
+
+PythonAnywhere Playwright Runner
+-----------------------------------
+Started : 2026-10-10 00:10:01
+Ends    : 2026-11-09 00:10:01
+Username     : eliezerkenya
+Target page  : https://www.pythonanywhere.com/user/eliezerkenya/webapps/#tab_id_eliezerkenya_pythonanywhere_com
+
+Opening PythonAnywhere login page...
+Login page loaded: https://www.pythonanywhere.com/login/
+Filling credentials...
+Login submitted.
+Current URL: https://www.pythonanywhere.com/user/eliezerkenya/
+
+============================================================
+Checking PythonAnywhere Web Apps page...
+2026-10-10 00:11:27
+============================================================
+Looking for 'Run until 1 month from today' button...
+Found button using selector: input.btn.btn-warning.webapp_extend[value="Run until 1 month from today"]
+Button clicked successfully!
+Run button clicked successfully.
+
+Chromium closed.
