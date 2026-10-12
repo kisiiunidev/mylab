@@ -76,8 +76,7 @@ else
     echo "No changes to commit."
 fi
 
-# Push changes
-# Push to GitHub and wait for completion
+# Push changes and wait for completion
 echo "Pushing changes to GitHub..."
 
 if git push -u origin backup; then
@@ -87,7 +86,7 @@ else
     exit 1
 fi
 
-# Continue only after the push succeeds
+# Return to the original branch
 git switch "$ORIGINAL_BRANCH"
 
 printf '\nDaily backup completed successfully!\n'
