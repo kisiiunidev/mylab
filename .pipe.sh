@@ -4,7 +4,7 @@ set -Eeuo pipefail
 # Ensure we are inside a Git repository
 git rev-parse --is-inside-work-tree >/dev/null
 
-# Ensure the working tree and index are clean
+# Require a clean working tree before switching branches
 if ! git diff --quiet ||
    ! git diff --cached --quiet ||
    [[ -n "$(git ls-files --others --exclude-standard)" ]]; then
@@ -15,9 +15,24 @@ fi
 ORIGINAL_BRANCH=$(git branch --show-current)
 
 if [[ -z "$ORIGINAL_BRANCH" ]]; then
-    echo "Error: Detached HEAD; cannot restore the original branch."
+    echo "Error: Detached HEAD; cannot restore original branch."
     exit 1
 fi
+
+# Restore original branch when the script exits
+restore_branch() {
+    local status=$?
+    trap - EXIT
+
+    if [[ "$(git branch --show-current)" != "$ORIGINAL_BRANCH" ]]; then
+        git switch "$ORIGINAL_BRANCH" || {
+            echo "Warning: Could not restore branch $ORIGINAL_BRANCH."
+        }
+    fi
+
+    exit "$status"
+}
+trap restore_branch EXIT
 
 # Ensure origin exists
 if ! git remote get-url origin >/dev/null 2>&1; then
@@ -25,10 +40,10 @@ if ! git remote get-url origin >/dev/null 2>&1; then
     exit 1
 fi
 
-# Fetch remote references
+echo "Fetching from GitHub..."
 git fetch origin
 
-# Switch to backup, creating it if necessary
+# Switch to or create backup branch
 if git show-ref --verify --quiet refs/heads/backup; then
     git switch backup
 elif git show-ref --verify --quiet refs/remotes/origin/backup; then
@@ -37,32 +52,32 @@ else
     git switch -c backup
 fi
 
-# Only rebase when histories are related and the remote
-# has no commits that would reintroduce unwanted history.
+# Check whether the remote backup branch exists
 if git show-ref --verify --quiet refs/remotes/origin/backup; then
-    if git merge-base backup origin/backup >/dev/null 2>&1; then
-        git rebase origin/backup
-    else
-        echo "Error: Local and remote backup histories are unrelated."
-        echo "Resolve the history mismatch manually; refusing to pull."
-        git switch "$ORIGINAL_BRANCH"
+    # Refuse to merge or rebase unrelated histories
+    if ! git merge-base backup origin/backup >/dev/null 2>&1; then
+        echo "Error: Local and remote backup histories differ."
+        echo "Inspect with: git log --oneline --left-right backup...origin/backup"
+        echo "Resolve the history mismatch before pushing."
         exit 1
     fi
+
+    # Rebase only if the histories are related
+    git rebase origin/backup
 fi
 
-# Stage and commit changes
+# Stage changes
 git add -A
 
+# Commit only if changes exist
 if ! git diff --cached --quiet; then
     git commit -m "Daily backup $(date +%F)"
 else
     echo "No changes to commit."
 fi
 
-# Push without force
+# Push changes
+echo "Pushing backup to GitHub..."
 git push -u origin backup
 
-# Return to the original branch
-git switch "$ORIGINAL_BRANCH"
-
-printf '\nDaily backup completed successfully!\n'
+echo "Daily backup completed successfully!"
