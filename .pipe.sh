@@ -77,7 +77,19 @@ else
 fi
 
 # Push changes
-echo "Pushing backup to GitHub..."
-git push -u origin backup
+# Push to GitHub and wait for completion
+echo "Pushing changes to GitHub..."
+
+if git push -u origin backup; then
+    echo "Push completed successfully!"
+else
+    echo "Error: Failed to push changes to GitHub."
+    exit 1
+fi
+
+# Continue only after the push succeeds
+git switch "$ORIGINAL_BRANCH"
+
+printf '\nDaily backup completed successfully!\n'
 
 echo "Daily backup completed successfully!"
