@@ -1,0 +1,90 @@
+
+{% extends "base.html" %}
+{% block title %}My Files · Cloud Storage{% endblock %}
+
+{% block content %}
+<div class="page-heading">
+    <div>
+        <h1>My files</h1>
+        <p>Cloudflare R2 object storage</p>
+    </div>
+    <a class="button" href="{{ url_for('upload') }}">Upload file</a>
+</div>
+
+<form class="search" method="get">
+    <input name="q" value="{{ search }}" placeholder="Search filenames">
+    {% if current_folder %}
+        <input type="hidden" name="folder" value="{{ current_folder }}">
+    {% endif %}
+    <button type="submit">Search</button>
+</form>
+
+{% if current_folder %}
+    <p>Folder: <strong>{{ current_folder }}</strong>
+        · <a href="{{ url_for('index') }}">All files</a>
+    </p>
+{% endif %}
+
+<section class="folders">
+    <h2>Folders</h2>
+    {% if folders %}
+        <div class="folder-list">
+            {% for folder in folders %}
+                <a class="folder" href="{{ url_for('index', folder=folder) }}">
+                    📁 {{ folder }}
+                </a>
+            {% endfor %}
+        </div>
+    {% else %}
+        <p class="muted">No folders yet.</p>
+    {% endif %}
+</section>
+
+<section>
+    <h2>Files ({{ files|length }})</h2>
+
+    {% if files %}
+    <div class="file-list">
+        {% for file in files %}
+        <article class="file-card">
+            <div class="file-icon">
+                {% if file.content_type.startswith('image/') %}
+                    <img src="{{ url_for('preview', file_id=file.id) }}"
+                         alt="" loading="lazy">
+                {% elif file.content_type == 'application/pdf' %}
+                    📕
+                {% elif file.content_type.startswith('video/') %}
+                    🎬
+                {% else %}
+                    📄
+                {% endif %}
+            </div>
+
+            <div class="file-info">
+                <strong>{{ file.filename }}</strong>
+                <span>{{ file.folder or 'Root folder' }}</span>
+                <span>{{ "%.2f"|format(file.size_bytes / 1048576) }} MB</span>
+                <span>{{ file.created_at.strftime('%Y-%m-%d %H:%M') }}</span>
+            </div>
+
+            <div class="actions">
+                <a href="{{ url_for('preview', file_id=file.id) }}">Preview</a>
+                <a href="{{ url_for('download', file_id=file.id) }}">Download</a>
+                <a href="{{ public_url(file.object_key) }}"
+                   target="_blank" rel="noopener noreferrer">Public URL</a>
+
+                <form method="post"
+                      action="{{ url_for('delete_file', file_id=file.id) }}"
+                      onsubmit="return confirm('Delete this file permanently?')">
+                    <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+                    <button class="danger" type="submit">Delete</button>
+                </form>
+            </div>
+        </article>
+        {% endfor %}
+    </div>
+    {% else %}
+        <p class="muted">No files found. Upload your first file.</p>
+    {% endif %}
+</section>
+{% endblock %}
