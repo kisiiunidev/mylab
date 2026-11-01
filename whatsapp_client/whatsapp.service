@@ -1,0 +1,20 @@
+[Unit]
+Description=Custom Whatsapp Service
+After=network.target
+
+[Service]
+Type=simple
+User=server
+
+WorkingDirectory=/home/server/Projects/whatsapp_client
+
+ExecStart=/usr/bin/python3 /home/server/Projects/whatsapp_client/api.py
+Restart=always
+RestartSec=5
+
+# Silence all logs entirely from the screen and system journals
+StandardOutput=null
+StandardError=null
+
+[Install]
+WantedBy=multi-user.target

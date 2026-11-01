@@ -1,0 +1,10 @@
+Search Query,Google Search URL
+site:eliezerkenya.pythonanywhere.com,https://www.google.com/search?q=site%3Aeliezerkenya.pythonanywhere.com
+site:eliezerkenya.pythonanywhere.com filetype:pdf,https://www.google.com/search?q=site%3Aeliezerkenya.pythonanywhere.com+filetype%3Apdf
+site:eliezerkenya.pythonanywhere.com filetype:docx,https://www.google.com/search?q=site%3Aeliezerkenya.pythonanywhere.com+filetype%3Adocx
+site:eliezerkenya.pythonanywhere.com inurl:login,https://www.google.com/search?q=site%3Aeliezerkenya.pythonanywhere.com+inurl%3Alogin
+site:eliezerkenya.pythonanywhere.com inurl:help,https://www.google.com/search?q=site%3Aeliezerkenya.pythonanywhere.com+inurl%3Ahelp
+site:eliezerkenya.pythonanywhere.com intitle:documentation,https://www.google.com/search?q=site%3Aeliezerkenya.pythonanywhere.com+intitle%3Adocumentation
+"site:eliezerkenya.pythonanywhere.com ""privacy policy""",https://www.google.com/search?q=site%3Aeliezerkenya.pythonanywhere.com+%22privacy+policy%22
+site:eliezerkenya.pythonanywhere.com (api OR developer OR documentation),https://www.google.com/search?q=site%3Aeliezerkenya.pythonanywhere.com+%28api+OR+developer+OR+documentation%29
+site:eliezerkenya.pythonanywhere.com (swagger OR openapi),https://www.google.com/search?q=site%3Aeliezerkenya.pythonanywhere.com+%28swagger+OR+openapi%29
