@@ -1,0 +1,55 @@
+{
+    "search": {
+        "username": "susanwebi_2",
+        "sites_database": "/home/server/.maigret/data.json (8517 sites)",
+        "sites_checked": 509,
+        "search_interrupted": false
+    },
+    "summary": {
+        "accounts_found": 2,
+        "identifiers": [],
+        "countries": [
+            "pl"
+        ],
+        "interests": [
+            "apps",
+            "shopping",
+            "social",
+            "movies"
+        ],
+        "search_text": "Search by username susanwebi_2 returned 2 accounts.",
+        "extended_info_count": 0
+    },
+    "accounts": [
+        {
+            "platform": "Wishlistr",
+            "profile_url": "https://www.wishlistr.com/susanwebi/",
+            "status": "found",
+            "data": {}
+        },
+        {
+            "platform": "FilmWeb",
+            "profile_url": "https://www.filmweb.pl/user/susanwebi",
+            "status": "found",
+            "data": {}
+        },
+        {
+            "platform": "Wishlistr",
+            "profile_url": "https://www.wishlistr.com/susanwebi_2/",
+            "status": "found",
+            "data": {}
+        },
+        {
+            "platform": "FilmWeb",
+            "profile_url": "https://www.filmweb.pl/user/susanwebi_2",
+            "status": "found",
+            "data": {}
+        }
+    ],
+    "statistics": {
+        "total_parsed": 4,
+        "found": 4,
+        "unknown": 0,
+        "not_found": 0
+    }
+}

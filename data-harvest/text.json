@@ -1,0 +1,205 @@
+{
+    "search": {
+        "username": "eliezerkenya",
+        "sites_database": "/home/server/.maigret/data.json (8517 sites)",
+        "sites_checked": 509,
+        "search_interrupted": false
+    },
+    "summary": {
+        "accounts_found": 13,
+        "identifiers": [],
+        "countries": [
+            "pl"
+        ],
+        "interests": [
+            "social",
+            "messaging",
+            "business",
+            "freelance",
+            "coding",
+            "sharing",
+            "networking",
+            "streaming",
+            "video",
+            "art",
+            "design",
+            "photo",
+            "movies",
+            "apps",
+            "shopping"
+        ],
+        "search_text": "Search by username eliezerkenya returned 13 accounts.",
+        "extended_info_count": 10
+    },
+    "accounts": [
+        {
+            "platform": "Telegram",
+            "profile_url": "https://t.me/eliezerkenya",
+            "status": "found",
+            "data": {
+                "─fullname": "Eliezer Ke",
+                "─image": "https://cdn4.telesco.pe/file/kl0U-Yo_IitgFbAm1BlPG7TsBvui8oERCGs2YeP8gy8HD6APadxR37WifhXawynsHTKP1fOzPNWtS6o5DSMCt4Du3SAUPdlioGCqaI3HE-TbyBmucMoYZHtl6kHBSpbLQWzx3-zrHdfc5FdVM4SRCXcnKiKe7cJq6NGafXLdZFNv9sCC9m5AxgWdFQmjcMqaTij1j9wJ9N8_0FKa_p3eN90L4Z_4GUcDLRLNLikXHQZzVXZIdc2Vvzn1VEKtKAf739QBN1uz7nCroq4dL1g2vSxCFjC42haoSsLlxG5EQ_eBVhgi3B5PhOhrdC4ag8I8VWz_OmmuosbIe9aRWbL4xw.jpg\nSearching |█▌                                      | ▁▃▅ 19/509 [4%] in 1s (~1:0\nSearching |██▏                                     | ▂▄▆ 27/509 [5%] in 1s (~52s\nSearching |██▎                                     | ▃▅▇ 28/509 [6%] in 2s (~43s"
+            }
+        },
+        {
+            "platform": "Bluesky",
+            "profile_url": "https://bsky.app/profile/eliezerkenya.bsky.social",
+            "status": "found",
+            "data": {
+                "─uid": "did:plc:sh5kyno2x2z2wfuchwe52c5j",
+                "─username": "eliezerkenya",
+                "─fullname": "eliezerkenya",
+                "─image": "https://cdn.bsky.app/img/avatar/plain/did:plc:sh5kyno2x2z2wfuchwe52c5j/bafkreidclvvzdqipxrmjbxmzw64gxxotumh6d56hf5i3zolnqr7viaivkm",
+                "─image_bg": "https://cdn.bsky.app/img/banner/plain/did:plc:sh5kyno2x2z2wfuchwe52c5j/bafkreie7tr5glsiobd57lywyjwubwirhgiuegzrceq4vh5d6ixm674zp3y",
+                "─created_at": "2026-07-01T11:30:46.922Z",
+                "─follower_count": 5,
+                "─following_count": 7,
+                "─posts_count": 0
+            }
+        },
+        {
+            "platform": "Twitter",
+            "profile_url": "https://twitter.com/eliezerkenya",
+            "status": "found",
+            "data": {
+                "─uid": "VXNlcjoxOTY1MTU1MTY5NzM1MjAwNzY4",
+                "─fullname": "eliezerkenya",
+                "─bio": "Software developer, designer, IT man",
+                "─created_at": "2025-09-08 20:48:13+00:00",
+                "─image": "https://pbs.twimg.com/profile_images/1967218425010208768/lYau0XsQ.jpg",
+                "─image_bg": "https://pbs.twimg.com/profile_banners/1965155169735200768/1757856407",
+                "─is_protected": false,
+                "─follower_count": 0,
+                "─following_count": 8,
+                "─location": "Kisii, Kenya",
+                "─favourites_count": 3,
+                "─links": "",
+                "─ https": "//eliezerkenya.pythonanywhere.com\nSearching |█████▍                                  | ▁▃▅ 68/509 [13%] in 3s (~23\nSearching |█████▍                                  | ▂▄▆ 69/509 [14%] in 3s (~23\nSearching |█████▋                                  | ▃▅▇ 72/509 [14%] in 4s (~22\nSearching |█████▊                                  | ▄▆█ 73/509 [14%] in 4s (~22\nSearching |██████▏                                 | ▅▇▇ 78/509 [15%] in 4s (~22\nSearching |██████▎                                 | ▆█▆ 80/509 [16%] in 4s (~21\nSearching |██████▋                                 | ▇▇▅ 84/509 [17%] in 4s (~21\nSearching |███████▏                                | █▆▄ 90/509 [18%] in 4s (~20\nSearching |███████▌                                | ▇▅▃ 95/509 [19%] in 4s (~19\nSearching |███████▊                                | ▆▄▂ 98/509 [19%] in 4s (~18\nSearching |████████                                | ▅▃▁ 102/509 [20%] in 4s (~1\nSearching |████████▏                               | ▄▂▂ 104/509 [20%] in 4s (~1\nSearching |████████▎                               | ▃▁▃ 105/509 [21%] in 4s (~1\nSearching |████████▍                               | ▂▂▄ 107/509 [21%] in 4s (~1\nSearching |████████▍                               | ▁▃▅ 107/509 [21%] in 4s (~1\nSearching |████████▊                               | ▂▄▆ 112/509 [22%] in 4s (~1\nSearching |█████████▎                              | ▃▅▇ 117/509 [23%] in 4s (~1"
+            }
+        },
+        {
+            "platform": "Freelancer.com",
+            "profile_url": "https://www.freelancer.com/api/users/0.1/users?usernames%5B%5D=eliezerkenya&compact=true",
+            "status": "found",
+            "data": {
+                "─id": 95199520,
+                "─nickname": "eliezerkenya",
+                "─username": "eliezerkenya",
+                "─fullname": "Eliezer",
+                "─role": "freelancer",
+                "─location": "Kisii, Kenya",
+                "─created_at": "2026-10-15 19:57:42 UTC\nSearching |█████████▍                              | ▄▆█ 120/509 [24%] in 4s (~1\nSearching |█████████▍                              | ▅▇▇ 120/509 [24%] in 5s (~1\nSearching |█████████▋                              | ▆█▆ 123/509 [24%] in 5s (~1\nSearching |██████████                              | ▇▇▅ 127/509 [25%] in 5s (~1\nSearching |██████████▏                             | █▆▄ 129/509 [25%] in 5s (~1\nSearching |██████████▎                             | ▇▅▃ 131/509 [26%] in 5s (~1\nSearching |██████████▌                             | ▆▄▂ 134/509 [26%] in 5s (~1\nSearching |██████████▉                             | ▅▃▁ 139/509 [27%] in 5s (~1\nSearching |███████████▏                            | ▄▂▂ 142/509 [28%] in 5s (~1\nSearching |███████████▏                            | ▃▁▃ 142/509 [28%] in 5s (~1"
+            }
+        },
+        {
+            "platform": "Threads",
+            "profile_url": "https://www.threads.com/@eliezerkenya",
+            "status": "found",
+            "data": {
+                "─fullname": "eliezerkenya",
+                "─username": "eliezerkenya",
+                "─follower_count": 24,
+                "─posts_count": 4,
+                "─bio": "Developer\nSearching |███████████▏                            | ▂▂▄ 142/509 [28%] in 5s (~1"
+            }
+        },
+        {
+            "platform": "BuyMeACoffee",
+            "profile_url": "https://buymeacoff.ee/eliezerkenya",
+            "status": "found",
+            "data": {
+                "─fullname": "eliezerkenya",
+                "─bio": "I request coffee here",
+                "─image": "https://cdn.buymeacoffee.com/opengraph/images/10947360/1/og_12934200_1782146410.jpg\nSearching |███████████▏                            | ▁▃▅ 142/509 [28%] in 5s (~1\nSearching |███████████▍                            | ▂▄▆ 145/509 [28%] in 5s (~1"
+            }
+        },
+        {
+            "platform": "GitHub",
+            "profile_url": "https://github.com/eliezerkenya",
+            "status": "found",
+            "data": {
+                "─uid": 255483153,
+                "─image": "https://avatars.githubusercontent.com/u/255483153?v=4",
+                "─created_at": "2026-01-17T06:06:56Z",
+                "─follower_count": 1,
+                "─following_count": 0,
+                "─fullname": "eliezermedia",
+                "─public_gists_count": 0,
+                "─public_repos_count": 0
+            }
+        },
+        {
+            "platform": "YouTube",
+            "profile_url": "https://www.youtube.com/@eliezerkenya/about",
+            "status": "found",
+            "data": {
+                "─youtube_channel_id": "UCtu_2k2Vv5gHbb08MhPEhBQ",
+                "─fullname": "eliezerkenya",
+                "─image": "https://yt3.googleusercontent.com/fkbf2Bjj_d9gJO-4361DoTH4yugblcTFM-v0GG8euc8OGu6lR8JC5k_SiK89iFGitBYTbz7Z8M8=s900-c-k-c0x00ffffff-no-rj",
+                "─channel_url": "http://www.youtube.com/@eliezerkenya",
+                "─keywords": "eliezer \"eliezer ke\" \"eliezer kitendawili\" lsb livesongbook kitendawili kerindo ke eli eliezerkenya",
+                "─is_family_safe": true,
+                "─facebook_username": "eliezerkenya\nSearching |████████████▋                           | ▇▇▅ 160/509 [31%] in 5s (~1\nSearching |████████████▊                           | █▆▄ 163/509 [32%] in 6s (~1\nSearching |█████████████▌                          | ▇▅▃ 172/509 [34%] in 6s (~1\nSearching |█████████████▉                          | ▆▄▂ 176/509 [35%] in 6s (~1\nSearching |██████████████▏                         | ▅▃▁ 180/509 [35%] in 6s (~1\nSearching |██████████████▌                         | ▄▂▂ 185/509 [36%] in 6s (~1\nSearching |██████████████▊                         | ▃▁▃ 188/509 [37%] in 6s (~1\nSearching |██████████████▉                         | ▂▂▄ 189/509 [37%] in 6s (~1"
+            }
+        },
+        {
+            "platform": "Facebook",
+            "profile_url": "https://www.facebook.com/eliezerkenya",
+            "status": "found",
+            "data": {
+                "─uid": 100070278134946,
+                "─username": "eliezerkenya",
+                "─fullname": "Eliezer Ke",
+                "─description": "Eliezer Ke. Wafuasi 4,691 · 6 wanaongea kuhusu hili. 💖💖End Time Message Believer..💯\n📲 Website developer | App dev\n😜 love country music, coding 😃",
+                "─image": "https://scontent.fnbo1-2.fna.fbcdn.net/v/t39.30808-1/787287905_1147773120908615_3515386655340854449_n.jpg?stp=dst-jpg_tt6&cstp=mx1802x1784&ctp=s720x720&_nc_cat=108&_nc_map=urlgen_bucketless&ccb=1-7&_nc_sid=3ab345&_nc_ohc=KsHkNljI8jIQ7kNvwGFx7xx&_nc_oc=AdoRb8Z2MHz6NNdO3QarR8aCJ4YQa-Qyl7vQAP9CcB6hnwuAJjFXLqGnNHzuA_Yww5Y&_nc_zt=24&_nc_ht=scontent.fnbo1-2.fna&_nc_gid=Dtmp2afCpPz8NQGYSD6shA&_nc_ss=7020f&oh=00_AQRDUUKxgSvzETm7ziwQasYdqJgXOkhgeyyExrVamUh0pw&oe=6AED9FAF\nSearching |███████████████                         | ▁▃▅ 191/509 [38%] in 6s (~1\nSearching |███████████████▍                        | ▂▄▆ 196/509 [39%] in 6s (~1\nSearching |███████████████▋                        | ▃▅▇ 199/509 [39%] in 6s (~1\nSearching |███████████████▉                        | ▄▆█ 202/509 [40%] in 6s (~1\nSearching |████████████████▏                       | ▅▇▇ 205/509 [40%] in 6s (~1\nSearching |████████████████▍                       | ▆█▆ 209/509 [41%] in 6s (~9\nSearching |████████████████▋                       | ▇▇▅ 211/509 [41%] in 6s (~9\nSearching |████████████████▋                       | █▆▄ 212/509 [42%] in 6s (~9\nSearching |████████████████▉                       | ▇▅▃ 215/509 [42%] in 6s (~9\nSearching |████████████████▉                       | ▆▄▂ 215/509 [42%] in 7s (~9\nSearching |█████████████████                       | ▅▃▁ 217/509 [43%] in 7s (~9\nSearching |█████████████████▎                      | ▄▂▂ 219/509 [43%] in 7s (~9\nSearching |█████████████████▎                      | ▃▁▃ 220/509 [43%] in 7s (~9\nSearching |█████████████████▋                      | ▂▂▄ 224/509 [44%] in 7s (~9\nSearching |█████████████████▊                      | ▁▃▅ 226/509 [44%] in 7s (~9\nSearching |█████████████████▉                      | ▂▄▆ 227/509 [45%] in 7s (~9\nSearching |██████████████████▏                     | ▃▅▇ 231/509 [45%] in 7s (~8\nSearching |██████████████████▌                     | ▄▆█ 235/509 [46%] in 7s (~8\nSearching |██████████████████▋                     | ▅▇▇ 237/509 [47%] in 7s (~8\nSearching |██████████████████▊                     | ▆█▆ 238/509 [47%] in 7s (~8\nSearching |██████████████████▊                     | ▇▇▅ 239/509 [47%] in 7s (~8\nSearching |██████████████████▊                     | █▆▄ 239/509 [47%] in 7s (~8\nSearching |███████████████████                     | ▇▅▃ 242/509 [48%] in 7s (~8\nSearching |███████████████████                     | ▆▄▂ 242/509 [48%] in 7s (~8\nSearching |███████████████████▏                    | ▅▃▁ 243/509 [48%] in 7s (~8\nSearching |███████████████████▏                    | ▄▂▂ 244/509 [48%] in 7s (~8\nSearching |███████████████████▍                    | ▃▁▃ 247/509 [49%] in 8s (~8\nSearching |███████████████████▊                    | ▂▂▄ 251/509 [49%] in 8s (~8\nSearching |████████████████████▎                   | ▁▃▅ 257/509 [50%] in 8s (~8\nSearching |████████████████████▌                   | ▂▄▆ 261/509 [51%] in 8s (~8\nSearching |████████████████████▌                   | ▃▅▇ 261/509 [51%] in 8s (~8\nSearching |████████████████████▌                   | ▄▆█ 261/509 [51%] in 8s (~7"
+            }
+        },
+        {
+            "platform": "Pinterest",
+            "profile_url": "https://www.pinterest.com/eliezerkenya/",
+            "status": "found",
+            "data": {
+                "─uid": 1127870437838540838,
+                "─username": "eliezerkenya",
+                "─fullname": "eliezerkenya, co",
+                "─bio": "I am a full-stack engineer, computer science researcher, and technical educator dedicated to bridging the gap between complex software architecture and accessible tech education. With a robust technical background spanning multi-platform development—including Python (FastAPI, Flask), Flutter, and advanced database systems—I specialize in building scalable web, mobile, and desktop applications.",
+                "─image": "https://i.pinimg.com/280x280_RS/81/ae/b8/81aeb87b19c5b813e1987ffcccaf0a66.jpg",
+                "─website": "http://elabskenya.pythonanywhere.com/shop",
+                "─follower_count": 0,
+                "─following_count": 1,
+                "─posts_count": 18,
+                "─is_private": false,
+                "─is_indexed": true,
+                "─is_partner": true,
+                "─is_verified_merchant": false,
+                "─is_website_verified": false,
+                "─created_at": "Sat, 20 Jun 2026 08:24:24 +0000",
+                "─latest_activity_at": "Fri, 16 Oct 2026 07:37:37 +0000\nSearching |████████████████████▌                   | ▅▇▇ 261/509 [51%] in 8s (~7\nSearching |████████████████████▉                   | ▆█▆ 266/509 [52%] in 8s (~7\nSearching |█████████████████████                   | ▇▇▅ 268/509 [53%] in 8s (~7\nSearching |█████████████████████▌                  | █▆▄ 273/509 [54%] in 8s (~7\nSearching |█████████████████████▉                  | ▇▅▃ 278/509 [55%] in 8s (~7\nSearching |██████████████████████                  | ▆▄▂ 280/509 [55%] in 8s (~7\nSearching |██████████████████████▍                 | ▅▃▁ 284/509 [56%] in 8s (~7\nSearching |██████████████████████▋                 | ▄▂▂ 288/509 [57%] in 8s (~7\nSearching |███████████████████████                 | ▃▁▃ 292/509 [57%] in 8s (~6\nSearching |███████████████████████▍                | ▂▂▄ 297/509 [58%] in 8s (~6\nSearching |███████████████████████▌                | ▁▃▅ 299/509 [59%] in 8s (~6"
+            }
+        },
+        {
+            "platform": "FilmWeb",
+            "profile_url": "https://www.filmweb.pl/user/eliezerkenya",
+            "status": "found",
+            "data": {}
+        },
+        {
+            "platform": "Wishlistr",
+            "profile_url": "https://www.wishlistr.com/eliezerkenya/",
+            "status": "found",
+            "data": {}
+        },
+        {
+            "platform": "GitHubGist [GitHub]",
+            "profile_url": "https://gist.github.com/eliezerkenya",
+            "status": "found",
+            "data": {}
+        }
+    ],
+    "statistics": {
+        "total_parsed": 13,
+        "found": 13,
+        "unknown": 0,
+        "not_found": 0
+    }
+}
