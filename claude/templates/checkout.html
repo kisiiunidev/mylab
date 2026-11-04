@@ -1,0 +1,102 @@
+{% extends "base.html" %}
+
+{% block title %}Coffee Corner - Checkout{% endblock %}
+
+{% block content %}
+<section class="checkout-section">
+    <div class="checkout-container">
+        <div class="checkout-header">
+            <h1>Checkout</h1>
+            <a href="{{ url_for('cart') }}" class="back-to-cart">
+                <i class="fas fa-arrow-left"></i> Back to Cart
+            </a>
+        </div>
+
+        <div class="checkout-content">
+            <div class="checkout-form-container">
+                <h2>Billing Information</h2>
+                <form method="POST" action="{{ url_for('checkout') }}" class="checkout-form">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="name">Full Name *</label>
+                            <input type="text" id="name" name="name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email Address *</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="phone">Phone Number</label>
+                            <input type="tel" id="phone" name="phone">
+                        </div>
+                        <div class="form-group">
+                            <label for="address">Shipping Address *</label>
+                            <textarea id="address" name="address" rows="3" required></textarea>
+                        </div>
+                    </div>
+
+                    <div class="form-section">
+                        <h3>Payment Information</h3>
+                        <div class="payment-methods">
+                            <div class="payment-method active">
+                                <input type="radio" id="credit-card" name="payment-method" value="credit-card" checked>
+                                <label for="credit-card">
+                                    <i class="fab fa-cc-visa"></i>
+                                    <i class="fab fa-cc-mastercard"></i>
+                                    <i class="fab fa-cc-amex"></i>
+                                    Credit Card
+                                </label>
+                            </div>
+                            <div class="payment-method">
+                                <input type="radio" id="paypal" name="payment-method" value="paypal">
+                                <label for="paypal">
+                                    <i class="fab fa-cc-paypal"></i>
+                                    PayPal
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <button type="submit" class="place-order-btn">
+                        <i class="fas fa-lock"></i> Place Order Securely
+                    </button>
+                </form>
+            </div>
+
+            <div class="order-summary">
+                <h2>Order Summary</h2>
+                <div class="order-items">
+                    {% for coffee_id, quantity in session.get('cart', {}).items() %}
+                    <div class="order-item">
+                        <div class="item-info">
+                            <h4>{{ Coffee.query.get(int(coffee_id)).name if Coffee.query.get(int(coffee_id)) else 'Unknown Coffee' }}</h4>
+                            <p class="item-quantity">Qty: {{ quantity }}</p>
+                        </div>
+                        <div class="item-price">
+                            <p>${{ "%.2f"|format(Coffee.query.get(int(coffee_id)).price * quantity if Coffee.query.get(int(cooffee_id)) else 0) }}</p>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+
+                <div class="order-totals">
+                    <div class="total-row">
+                        <span>Subtotal:</span>
+                        <span>${{ "%.2f"|format(total) }}</span>
+                    </div>
+                    <div class="total-row">
+                        <span>Shipping:</span>
+                        <span>Free</span>
+                    </div>
+                    <div class="total-row final-total">
+                        <span>Total:</span>
+                        <span>${{ "%.2f"|format(total) }}</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

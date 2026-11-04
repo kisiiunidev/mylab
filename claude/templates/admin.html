@@ -1,0 +1,122 @@
+{% extends "base.html" %}
+
+{% block title %}Coffee Corner - Admin Panel{% endblock %}
+
+{% block content %}
+<section class="admin-section">
+    <div class="admin-container">
+        <div class="admin-header">
+            <h1>Admin Dashboard</h1>
+            <p>Manage your coffee shop</p>
+        </div>
+
+        <div class="admin-tabs">
+            <button class="tab-btn active" onclick="showTab('coffees-tab')">Coffee Management</button>
+            <button class="tab-btn" onclick="showTab('posts-tab')">Blog Posts</button>
+            <button class="tab-btn" onclick="showTab('orders-tab')">Orders</button>
+        </div>
+
+        <div class="admin-content">
+            <div id="coffees-tab" class="tab-content active">
+                <div class="tab-header">
+                    <h2>Coffee Management</h2>
+                    <a href="{{ url_for('add_coffee') }}" class="add-btn">
+                        <i class="fas fa-plus"></i> Add New Coffee
+                    </a>
+                </div>
+                <div class="coffees-admin-grid">
+                    {% for coffee in coffees %}
+                    <div class="coffee-admin-card">
+                        <div class="coffee-admin-image">
+                            <img src="{{ coffee.image_url }}" alt="{{ coffee.name }}">
+                        </div>
+                        <div class="coffee-admin-info">
+                            <h3>{{ coffee.name }}</h3>
+                            <p class="coffee-price">${{ "%.2f"|format(coffee.price) }}</p>
+                            <div class="coffee-admin-meta">
+                                <span class="coffee-type">{{ coffee.coffee_type }}</span>
+                                <span class="roast-level {{ coffee.roast_level }}">{{ coffee.roast_level }}</span>
+                            </div>
+                            <div class="coffee-admin-actions">
+                                <a href="#" class="edit-btn">Edit</a>
+                                <a href="#" class="delete-btn">Delete</a>
+                            </div>
+                        </div>
+                    </div>
+                    {% else %}
+                    <div class="no-coffees-admin">
+                        <p>No coffees available. Add some coffees to get started!</p>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+
+            <div id="posts-tab" class="tab-content">
+                <div class="tab-header">
+                    <h2>Blog Posts Management</h2>
+                    <a href="#" class="add-btn">
+                        <i class="fas fa-plus"></i> Add New Post
+                    </a>
+                </div>
+                <div class="posts-admin-list">
+                    {% for post in posts %}
+                    <div class="post-admin-card">
+                        <div class="post-admin-image">
+                            <img src="{{ post.featured_image or 'https://images.unsplash.com/photo-1495474472287-fb4f2495d957?w=400' }}" alt="{{ post.title }}">
+                        </div>
+                        <div class="post-admin-info">
+                            <h3>{{ post.title }}</h3>
+                            <p class="post-meta">
+                                By {{ post.author }} | {{ post.published_at[:10] if post.published_at else post.created_at[:10] }}
+                            </p>
+                            <div class="post-admin-actions">
+                                <a href="#" class="edit-btn">Edit</a>
+                                <a href="#" class="delete-btn">Delete</a>
+                            </div>
+                        </div>
+                    </div>
+                    {% else %}
+                    <div class="no-posts-admin">
+                        <p>No blog posts available. Add some posts to get started!</p>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+
+            <div id="orders-tab" class="tab-content">
+                <div class="tab-header">
+                    <h2>Orders Management</h2>
+                </div>
+                <div class="orders-admin-table">
+                    <div class="table-header">
+                        <div class="col order-id">Order ID</div>
+                        <div class="col customer">Customer</div>
+                        <div class="col date">Date</div>
+                        <div class="col total">Total</div>
+                        <div class="col status">Status</div>
+                        <div class="col actions">Actions</div>
+                    </div>
+                    {% for order in orders %}
+                    <div class="table-row">
+                        <div class="col order-id">#{{ order.id }}</div>
+                        <div class="col customer">{{ order.customer_name }}</div>
+                        <div class="col date">{{ order.created_at[:10] }}</div>
+                        <div class="col total">${{ "%.2f"|format(order.total_amount) }}</div>
+                        <div class="col status">
+                            <span class="status-badge {{ order.status }}">{{ order.status.title() }}</span>
+                        </div>
+                        <div class="col actions">
+                            <a href="{{ url_for('order_confirmation', id=order.id) }}" class="action-link">View</a>
+                        </div>
+                    </div>
+                    {% else %}
+                    <div class="no-orders-admin">
+                        <p>No orders yet.</p>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

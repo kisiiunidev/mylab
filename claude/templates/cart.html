@@ -1,0 +1,77 @@
+{% extends "base.html" %}
+
+{% block title %}Coffee Corner - Your Cart{% endblock %}
+
+{% block content %}
+<section class="cart-section">
+    <div class="cart-container">
+        <div class="cart-header">
+            <h1>Your Shopping Cart</h1>
+            <a href="{{ url_for('coffees') }}" class="continue-shopping">
+                <i class="fas fa-arrow-left"></i> Continue Shopping
+            </a>
+        </div>
+
+        {% if session.get('cart') %}
+        <div class="cart-content">
+            <div class="cart-items">
+                <h2>Cart Items ({{ session.cart|length }} items)</h2>
+                {% for coffee_id, quantity in session.cart.items() %}
+                <div class="cart-item">
+                    <div class="item-image">
+                        <img src="{{ url_for('static', filename='uploads/placeholder.jpg') }}" alt="Coffee">
+                    </div>
+                    <div class="item-info">
+                        <h3>{{ Coffee.query.get(int(coffee_id)).name if Coffee.query.get(int(coffee_id)) else 'Unknown Coffee' }}</h3>
+                        <p class="item-price">${{ "%.2f"|format(Coffee.query.get(int(coffee_id)).price if Coffee.query.get(int(coffee_id)) else 0) }}</p>
+                        <div class="item-quantity">
+                            <form class="quantity-form" action="{{ url_for('add_to_cart', id=coffee_id) }}" method="POST">
+                                <button type="submit" class="quantity-btn decrease">-</button>
+                                <span class="quantity-display">{{ quantity }}</span>
+                                <button type="submit" class="quantity-btn increase">+</button>
+                            </form>
+                            <form class="remove-form" action="{{ url_for('remove_from_cart', id=coffee_id) }}" method="POST">
+                                <button type="submit" class="remove-item">
+                                    <i class="fas fa-trash"></i> Remove
+                                </button>
+                            </form>
+                        </div>
+                    </div>
+                    <div class="item-subtotal">
+                        <p>${{ "%.2f"|format(Coffee.query.get(int(coffee_id)).price * quantity if Coffee.query.get(int(coffee_id)) else 0) }}</p>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+
+            <div class="cart-summary">
+                <h2>Order Summary</h2>
+                <div class="summary-details">
+                    <div class="summary-row">
+                        <span>Subtotal:</span>
+                        <span>${{ "%.2f"|format(total) }}</span>
+                    </div>
+                    <div class="summary-row">
+                        <span>Shipping:</span>
+                        <span>Free</span>
+                    </div>
+                    <div class="summary-row total">
+                        <span>Total:</span>
+                        <span>${{ "%.2f"|format(total) }}</span>
+                    </div>
+                </div>
+                <a href="{{ url_for('checkout') }}" class="checkout-btn">
+                    Proceed to Checkout <i class="fas fa-arrow-right"></i>
+                </a>
+            </div>
+        </div>
+        {% else %}
+        <div class="empty-cart">
+            <i class="fas fa-shopping-cart"></i>
+            <h2>Your cart is empty</h2>
+            <p>Looks like you haven't added any coffee to your cart yet.</p>
+            <a href="{{ url_for('coffees') }}" class="shop-coffee-btn">Shop for Coffee</a>
+        </div>
+        {% endif %}
+    </div>
+</section>\n{% endblock %}

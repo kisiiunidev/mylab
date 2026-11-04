@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+
+{% block title %}{{ post.title }} - Coffee Corner{% endblock %}
+
+{% block content %}
+<article class="single-post">
+    <div class="post-header">
+        <h1>{{ post.title }}</h1>
+        <div class="post-meta">
+            <span class="author">By {{ post.author }}</span>
+            <span class="date">Published on {{ post.published_at[:10] if post.published_at else post.created_at[:10] }}</span>
+            {% if session.get('is_admin') %}
+            <span class="admin-badge">Admin</span>
+            {% endif %}
+        </div>
+    </div>
+
+    <div class="post-featured-image">
+        <img src="{{ post.featured_image or 'https://images.unsplash.com/photo-1495474472287-fb4f2495d957?w=400' }}" alt="{{ post.title }}">
+    </div>
+
+    <div class="post-content">
+        <p class="post-excerpt">{{ post.excerpt }}</p>
+        <div class="content-body">
+            {{ post.content | safe }}
+        </div>
+    </div>
+
+    <div class="post-footer">
+        <div class="post-tags">
+            <span class="tag-label">Coffee</span>
+            <span class="tag-label">Brewing</span>
+            <span class="tag-label">Coffee Culture</span>
+        </div>
+        <a href="{{ url_for('blog') }}" class="back-to-blog">
+            <i class="fas fa-arrow-left"></i> Back to Blog
+        </a>
+    </div>
+    </div>
+</article>
+{% endblock %}

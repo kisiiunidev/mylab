@@ -1,0 +1,67 @@
+{% extends "base.html" %}
+
+{% block title %}Coffee Corner - Blog{% endblock %}
+
+{% block content %}
+<section class="blog-section">
+    <div class="blog-container">
+        <div class="blog-header">
+            <h1>Coffee Blog</h1>
+            <p>Discover the world of coffee through our articles and insights</p>
+        </div>
+
+        <div class="blog-posts-grid">
+            {% for post in posts.items %}
+            <article class="blog-post-card">
+                <div class="post-image">
+                    <img src="{{ post.featured_image or 'https://images.unsplash.com/photo-1495474472287-fb4f2495d957?w=400' }}" alt="{{ post.title }}">
+                </div>
+                <div class="post-content">
+                    <div class="post-meta">
+                        <span class="post-author">By {{ post.author }}</span>
+                        <span class="post-date">{{ post.published_at[:10] if post.published_at else post.created_at[:10] }}</span>
+                    </div>
+                    <h2><a href="{{ url_for('blog_post', id=post.id) }}">{{ post.title }}</a></h2>
+                    <p class="post-excerpt">{{ post.excerpt or (post.content[:200] + '...' if post.content else '') }}</p>
+                    <a href="{{ url_for('blog_post', id=post.id) }}" class="read-more-btn">Read More</a>
+                </div>
+            </article>
+            {% else %}
+            <div class="no-posts">
+                <i class="fas fa-newspaper"></i>
+                <h3>No blog posts available</h3>
+                <p>Please check back later for new articles.</p>
+            </div>
+            {% endfor %}
+        </div>
+
+        {% if posts.pages > 1 %}
+        <div class="pagination">
+            <nav class="pagination-nav">
+                {% if posts.has_prev %}
+                <a href="{{ url_for('blog', page=posts.prev_num) }}" class="pagination-link prev">
+                    <i class="fas fa-chevron-left"></i> Previous
+                </a>
+                {% endif %}
+
+                <div class="page-numbers">
+                    {% for page_num in posts.iter_pages() %}
+                    {% if page_num %}
+                    <a href="{{ url_for('blog', page=page_num) }}" class="pagination-link page-number {% if page_num == posts.page %}active{% endif %}">{{ page_num }}</a>
+                    {% else %}
+                    <span class="pagination-link page-number disabled">...</span>
+                    {% endif %}
+                    {% endfor %}
+                </div>
+
+                {% if posts.has_next %}
+                <a href="{{ url_for('blog', page=posts.next_num) }}" class="pagination-link next">
+                    Next <i class="fas fa-chevron-right"></i>
+                </a>
+                {% endif %}
+            </nav>
+        </div>
+        {% endif %}
+    </div>
+</section>
+{% endblock %}

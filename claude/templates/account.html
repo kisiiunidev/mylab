@@ -1,0 +1,119 @@
+{% extends "base.html" %}
+
+{% block title %}Coffee Corner - My Account{% endblock %}
+
+{% block content %}
+<section class="account-section">
+    <div class="account-container">
+        <div class="account-sidebar">
+            <div class="user-profile">
+                <div class="user-avatar">
+                    <i class="fas fa-user"></i>
+                </div>
+                <div class="user-info">
+                    <h3>{{ user.username }}</h3>
+                    <p>{{ user.email }}</p>
+                    <span class="account-badge {% if user.is_admin %}admin{% else %}member{% endif %} {% if user.is_admin %}admin-badge{% else %}member-badge{% endif %}">
+                        {% if user.is_admin %}Admin{% else %}Member{% endif %}
+                    </span>
+                </div>
+            </div>
+
+            <nav class="account-nav">
+                <a href="{{ url_for('account') }}" class="nav-link active">
+                    <i class="fas fa-home"></i> Dashboard
+                </a>
+                <a href="#" class="nav-link">
+                    <i class="fas fa-history"></i> Order History
+                </a>
+                <a href="#" class="nav-link">
+                    <i class="fas fa-heart"></i> Wishlist
+                </a>
+                <a href="#" class="nav-link">
+                    <i class="fas fa-map-marker-alt"></i> Address Book
+                </a>
+                {% if user.is_admin %}
+                <a href="{{ url_for('admin') }}" class="nav-link admin-link">
+                    <i class="fas fa-cog"></i> Admin Panel
+                </a>
+                {% endif %}
+            </nav>
+        </div>
+
+        <div class="account-main">
+            <div class="account-header">
+                <h1>My Dashboard</h1>
+                <p>Welcome back, {{ user.username }}!</p>
+            </div>
+
+            <div class="account-stats">
+                <div class="stat-card">
+                    <div class="stat-icon">
+                        <i class="fas fa-shopping-bag"></i>
+                    </div>
+                    <div class="stat-info">
+                        <h3>{{ orders|length }}</h3>
+                        <p>Total Orders</p>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon">
+                        <i class="fas fa-coffee"></i>
+                    </div>
+                    <div class="stat-info">
+                        <h3>0</h3>
+                        <p>Pending Reviews</p>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon">
+                        <i class="fas fa-gift"></i>
+                    </div>
+                    <div class="stat-info">
+                        <h3>0</h3>
+                        <p>Coupons Available</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="recent-orders">
+                <h2>Recent Orders</h2>
+                {% if orders %}
+                <div class="orders-table">
+                    <div class="table-header">
+                        <div class="col order-id">Order ID</div>
+                        <div class="col date">Date</div>
+                        <div class="col total">Total</div>
+                        <div class="col status">Status</div>
+                        <div class="col actions">Actions</div>
+                    </div>
+                    {% for order in orders[:5] %}
+                    <div class="table-row">
+                        <div class="col order-id">#{{ order.id }}</div>
+                        <div class="col date">{{ order.created_at[:10] }}</div>
+                        <div class="col total">${{ "%.2f"|format(order.total_amount) }}</div>
+                        <div class="col status">
+                            <span class="status-badge {{ order.status }}">{{ order.status.title() }}</span>
+                        </div>
+                        <div class="col actions">
+                            <a href="{{ url_for('order_confirmation', id=order.id) }}" class="action-link">View</a>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+                <div class="view-all-orders">
+                    <a href="#" class="view-all">View All Orders →</a>
+                </div>
+                {% else %}
+                <div class="no-orders">
+                    <i class="fas fa-shopping-bag"></i>
+                    <h3>No orders yet</h3>
+                    <p>When you place an order, it will appear here.</p>
+                    <a href="{{ url_for('coffees') }}" class="shop-now-btn">Shop Now</a>
+                </div>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

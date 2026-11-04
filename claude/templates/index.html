@@ -1,0 +1,110 @@
+{% extends "base.html" %}
+
+{% block title %}Coffee Corner - Home{% endblock %}
+
+{% block content %}
+<section class="hero">
+    <div class="hero-content">
+        <h1>Welcome to Coffee Corner</h1>
+        <p>Discover our premium selection of carefully sourced coffees from around the world</p>
+        <a href="{{ url_for('coffees') }}" class="cta-button">Explore Our Coffee</a>
+    </div>
+</section>
+
+<section class="featured-section">
+    <h2>Featured Coffees</h2>
+    <div class="featured-grid">
+        {% for coffee in featured_coffees %}
+        <div class="coffee-card">
+            <div class="coffee-image">
+                <img src="{{ coffee.image_url }}" alt="{{ coffee.name }}">
+            </div>
+            <div class="coffee-info">
+                <h3>{{ coffee.name }}</h3>
+                <p class="coffee-description">{{ coffee.description }}</p>
+                <div class="coffee-meta">
+                    <span class="coffee-type">{{ coffee.coffee_type }}</span>
+                    <span class="roast-level {{ coffee.roast_level }}">{{ coffee.roast_level }} roast</span>
+                </div>
+                <div class="coffee-footer">
+                    <span class="price">${{ "%.2f"|format(coffee.price) }}</span>
+                    <a href="{{ url_for('coffee_detail', id=coffee.id) }}" class="view-button">View Details</a>
+                </div>
+            </div>
+        </div>
+        {% else %}
+        <p>No featured coffees available.</p>
+        {% endfor %}
+    </div>
+</section>
+
+<section class="about-preview">
+    <div class="about-content">
+        <h2>About Coffee Corner</h2>
+        <p>Welcome to Coffee Corner, where passion meets perfection. We believe that great coffee starts with great ingredients and careful craftsmanship. Each bean is sourced directly from farms that practice sustainable agriculture and ethical labor practices.</p>
+        <p> Our journey began in 2024 with a simple mission: to bring the finest coffee experiences to your doorstep. From single-origin delights to carefully crafted blends, we offer over 50 varieties of coffee to satisfy every palate.</p>
+        <a href="{{ url_for('about') }}" class="learn-more">Learn More About Us</a>
+    </div>
+</section>
+
+<section class="blog-preview">
+    <h2>Latest From Our Blog</h2>
+    <div class="blog-grid">
+        {% for post in recent_posts %}
+        <article class="blog-card">
+            <div class="blog-image">
+                <img src="{{ post.featured_image or 'https://images.unsplash.com/photo-1495474472287-fb4f2495d957?w=400' }}" alt="{{ post.title }}">
+            </div>
+            <div class="blog-content">
+                <div class="blog-meta">
+                    <span class="author">By {{ post.author }}</span>
+                    <span class="date">{{ post.published_at[:10] if post.published_at else 'Recent' }}</span>
+                </div>
+                <h3><a href="{{ url_for('blog_post', id=post.id) }}">{{ post.title }}</a></h3>
+                <p class="excerpt">{{ post.excerpt or post.content[:150] + '...' if post.content else 'No content' }}</p>
+                <a href="{{ url_for('blog_post', id=post.id) }}" class="read-more">Read More</a>
+            </div>
+        </article>
+        {% else %}
+        <p>No recent blog posts available.</p>
+        {% endfor %}
+    </div>
+    <div class="view-all">
+        <a href="{{ url_for('blog') }}" class="view-all-button">View All Articles</a>
+    </div>
+</section>
+
+<section class="features-section">
+    <h2>Why Choose Coffee Corner?</h2>
+    <div class="features-grid">
+        <div class="feature-card">
+            <div class="feature-icon">
+                <i class="fas fa-coffee"></i>
+            </div>
+            <h3>Premium Quality</h3>
+            <p>Sourced from the world's finest coffee estates</p>
+        </div>
+        <div class="feature-card">
+            <div class="feature-icon">
+                <i class="fas fa-truck"></i>
+            </div>
+            <h3>Fresh Delivery</h3>
+            <p>Roasted fresh and delivered to your door</p>
+        </div>
+        <div class="feature-card">
+            <div class="feature-icon">
+                <i class="fas fa-heart"></i>
+            </div>
+            <h3>Made with Passion</h3>
+            <p>Every cup is crafted with love and expertise</p>
+        </div>
+        <div class="feature-card">
+            <div class="feature-icon">
+                <i class="fas fa-star"></i>
+            </div>
+            <h3>Customer Service</h3>
+            <p>24/7 support for all your coffee needs</p>
+        </div>
+    </div>
+</section>
+{% endblock %}

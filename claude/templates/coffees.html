@@ -1,0 +1,89 @@
+{% extends "base.html" %}
+
+{% block title %}Coffee Corner - Our Collection{% endblock %}
+
+{% block content %}
+<section class="coffees-hero">
+    <div class="hero-content">
+        <h1>Our Coffee Collection</h1>
+        <p>Discover our selection of premium coffee beans from around the world</p>
+    </div>
+</section>
+
+<section class="coffees-section">
+    <div class="coffees-container">
+        <div class="filters-sidebar">
+            <div class="filter-group">
+                <h3>Filter by Type</h3>
+                <div class="filter-options">
+                    <a href="{{ url_for('coffees') }}" class="filter-btn {% if not request.args.get('type') %}active{% endif %}">All Types</a>
+                    {% for type in coffee_types %}
+                    <a href="{{ url_for('coffees', type=type) }}" class="filter-btn {% if request.args.get('type') == type %}active{% endif %}">{{ type }}</a>
+                    {% endfor %}
+                </div>
+            </div>
+
+            <div class="filter-group">
+                <h3>Filter by Roast</h3>
+                <div class="filter-options">
+                    <a href="{{ url_for('coffees') }}" class="filter-btn {% if not request.args.get('roast') %}active{% endif %}">All</a>
+                    <a href="{{ url_for('coffees', roast='light') }}" class="filter-btn {% if request.args.get('roast') == 'light' %}active{% endif %}">Light</a>
+                    <a href="{{ url_for('coffees', roast='medium') }}" class="filter-btn {% if request.args.get('roast') == 'medium' %}active{% endif %}">Medium</a>
+                    <a href="{{ url_for('coffees', roast='dark') }}" class="filter-btn {% if request.args.get('roast') == 'dark' %}active{% endif %}">Dark</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="coffees-main">
+            <div class="coffees-header">
+                <h2>{{ coffees|length }} Coffees Found</h2>
+                <div class="sort-options">
+                    <label for="sort">Sort by:</label>
+                    <select id="sort" name="sort">
+                        <option value="name-asc">Name (A-Z)</option>
+                        <option value="price-asc">Price (Low to High)</option>
+                        <option value="price-desc">Price (High to Low)</option>
+                        <option value="newest">Newest</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="coffees-grid">
+                {% for coffee in coffees %}
+                <div class="coffee-card">
+                    <div class="coffee-image">
+                        <img src="{{ coffee.image_url }}" alt="{{ coffee.name }}">
+                        <div class="coffee-badge {{ coffee.roast_level }}">{{ coffee.roast_level }} roast</div>
+                    </div>
+                    <div class="coffee-info">
+                        <h3>{{ coffee.name }}</h3>
+                        <p class="coffee-description">{{ coffee.description[:100] }}{% if coffee.description|length > 100 %}...{% endif %}</p>
+                        <div class="coffee-meta">
+                            <span class="coffee-type">{{ coffee.coffee_type }}</span>
+                            <span class="stock-info">{% if coffee.stock_quantity > 20 %}In Stock{% elif coffee.stock_quantity > 0 %}Limited{% else %}Out of Stock{% endif %}</span>
+                        </div>
+                        <div class="coffee-footer">
+                            <span class="price">${{ "%.2f"|format(coffee.price) }}</span>
+                            <div class="coffee-actions">
+                                <a href="{{ url_for('coffee_detail', id=coffee.id) }}" class="view-button">View Details</a>
+                                <form class="add-to-cart-form" action="{{ url_for('add_to_cart', id=coffee.id) }}" method="POST">
+                                    <button type="submit" class="add-to-cart-btn" {% if coffee.stock_quantity <= 0 %}disabled{% endif %}>
+                                        <i class="fas fa-shopping-cart"></i> Add to Cart
+                                    </button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                {% else %}
+                <div class="no-coffees">
+                    <i class="fas fa-coffee"></i>
+                    <h3>No coffees found</h3>
+                    <p>Try adjusting your filters or check back later.</p>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

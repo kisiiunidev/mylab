@@ -1,0 +1,72 @@
+{% extends "base.html" %}
+
+{% block title %}{{ coffee.name }} - Coffee Corner{% endblock %}
+
+{% block content %}
+<section class="coffee-detail-section">
+    <div class="coffee-detail-container">
+        <div class="coffee-gallery">
+            <div class="main-image">
+                <img src="{{ coffee.image_url }}" alt="{{ coffee.name }}">
+            </div>
+            <div class="thumbnail-gallery">
+                <img src="{{ coffee.image_url }}" alt="{{ coffee.name }} 1" class="thumbnail active">
+                <img src="{{ coffee.image_url }}" alt="{{ coffee.name }} 2" class="thumbnail">
+                <img src="{{ coffee.image_url }}" alt="{{ coffee.name }} 3" class="thumbnail">
+            </div>
+        </div>
+
+        <div class="coffee-info-section">
+            <div class="coffee-header">
+                <h1>{{ coffee.name }}</h1>
+                <div class="coffee-badges">
+                    <span class="coffee-badge {{ coffee.roast_level }}">{{ coffee.roast_level }} roast</span>
+                    <span class="coffee-badge {{ coffee.coffee_type }}">{{ coffee.coffee_type }}</span>
+                </div>
+            </div>
+
+            <div class="coffee-pricing">
+                <span class="price">${{ "%.2f"|format(coffee.price) }}</span>
+                <span class="stock-status {% if coffee.stock_quantity > 20 %}in-stock{% elif coffee.stock_quantity > 0 %}limited-stock{% else %}out-of-stock" %}>
+                    {% if coffee.stock_quantity > 20 %}In Stock
+                    {% elif coffee.stock_quantity > 0 %}Only {{ coffee.stock_quantity }} left
+                    {% else %}Out of Stock
+                    {% endif %}
+                </span>
+            </div>
+
+            <div class="coffee-description">
+                <h3>Description</h3>
+                <p>{{ coffee.description }}</p>
+            </div>
+
+            <div class="coffee-details">
+                <h3>Product Details</h3>
+                <ul>
+                    <li><strong>Roast Level:</strong> {{ coffee.roast_level.title() }}</li>
+                    <li><strong>Coffee Type:</strong> {{ coffee.coffee_type.title() }}</li>
+                    <li><strong>Stock Quantity:</strong> {{ coffee.stock_quantity }} units</li>
+                    <li><strong>Added on:</strong> {{ coffee.created_at[:10] }}</li>
+                </ul>
+            </div>
+
+            <div class="coffee-actions">
+                {% if coffee.stock_quantity > 0 %}
+                <form class="add-to-cart-form" action="{{ url_for('add_to_cart', id=coffee.id) }}" method="POST">
+                    <button type="submit" class="add-to-cart-btn">
+                        <i class="fas fa-shopping-cart"></i> Add to Cart
+                    </button>
+                </form>
+                {% else %}
+                <button class="out-of-stock-btn" disabled>
+                    <i class="fas fa-times-circle"></i> Out of Stock
+                </button>
+                {% endif %}
+                <a href="{{ url_for('coffees') }}" class="browse-all-btn">
+                    <i class="fas fa-arrow-left"></i> Browse All Coffee
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

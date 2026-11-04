@@ -1,0 +1,66 @@
+{% extends "base.html" %}
+
+{% block title %}Coffee Corner - Add Coffee{% endblock %}
+
+{% block content %}
+<section class="admin-form-section">
+    <div class="admin-form-container">
+        <div class="form-header">
+            <h1>Add New Coffee</h1>
+            <a href="{{ url_for('admin') }}" class="back-link">
+                <i class="fas fa-arrow-left"></i> Back to Admin Panel
+            </a>
+        </div>
+
+        <div class="admin-form-wrapper">
+            <form method="POST" action="{{ url_for('add_coffee') }}" class="admin-form" enctype="multipart/form-data">
+                <div class="form-group">
+                    <label for="name">Coffee Name *</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+                <div class="form-group">
+                    <label for="description">Description *</label>
+                    <textarea id="description" name="description" rows="4" required></textarea>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="price">Price ($) *</label>
+                        <input type="number" id="price" name="price" step="0.01" min="0" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="stock_quantity">Stock Quantity *</label>
+                        <input type="number" id="stock_quantity" name="stock_quantity" min="0" required>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="roast_level">Roast Level *</label>
+                        <select id="roast_level" name="roast_level" required>
+                            <option value="">Select Roast Level</option>
+                            <option value="light">Light</option>
+                            <option value="medium">Medium</option>
+                            <option value="dark">Dark</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="coffee_type">Coffee Type *</label>
+                        <select id="coffee_type" name="coffee_type" required>
+                            <option value="">Select Coffee Type</option>
+                            <option value="arabica">Arabica</option>
+                            <option value="robusta">Robusta</option>
+                            <option value="blend">Blend</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="image_url">Image URL *</label>
+                    <input type="url" id="image_url" name="image_url" placeholder="https://example.com/coffee.jpg" required>
+                </div>
+                <button type="submit" class="submit-btn">
+                    <i class="fas fa-plus"></i> Add Coffee
+                </button>
+            </form>
+        </div>
+    </div>
+</section>
+{% endblock %}
