@@ -10,7 +10,7 @@ message = sys.argv[1] if len(sys.argv) > 1 else "Eliezer, "
 
 URL = "http://127.0.0.1:5000/send"
 URL_CHECK = "http://127.0.0.1:5000/status"
-DATA = json.dumps({"recipient": "@_eliezerkenya_", "message": f"Hello, {message}just checkin' on you {random.choice([i for i in emojis])} at \n{strftime('%H:%M:%S')}!"}).encode("utf-8")
+DATA = json.dumps({"recipient": "eliezerkenya co", "message": f"Hello, {message}just checkin' on you {random.choice([i for i in emojis])} at \n{strftime('%H:%M:%S')}!"}).encode("utf-8")
 
 def check_endpoint():
     try:
