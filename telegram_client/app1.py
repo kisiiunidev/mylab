@@ -2,7 +2,7 @@ import asyncio
 import telegram
 
 # Replace these with your actual token and chat ID
-TOKEN = "8661589029:AAEohjFF8U0NBpthl3Hu1VHk4hIH3-7bPrs"
+TOKEN = "TG_TOCKEN"
 CHAT_ID = "8279052184"
 
 async def send_message():

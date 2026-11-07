@@ -7,7 +7,7 @@ logging.basicConfig(
     format="%(asctime)s - %(name)s - %(levelname)s - %(message)s", level=logging.INFO
 )
 
-TOKEN = "8813259005:AAEnvK9ClkSYXhxLSgtDiehX1euG7AHp_DQ"
+TOKEN = "TG_TOKEN"
 
 # Handler for the /start command
 async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
